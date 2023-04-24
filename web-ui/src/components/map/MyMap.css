@@ -1,0 +1,46 @@
+.map-container {
+  position: relative;
+  height: calc(86% - 1rem);
+  width: 100%;
+}
+
+#clock {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 12.5rem;
+  z-index: 1;
+}
+
+#tools {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1;
+}
+
+#play-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+#clear-btn {
+  margin-right: 0.5rem;
+  width: 6rem;
+}
+
+#download-btn {
+  width: 6rem;
+  margin-right: 0.5rem;
+}
+
+#save-btn {
+  width: 6rem;
+}
+
+#download { 
+  text-decoration: none;
+  color: #fff
+}

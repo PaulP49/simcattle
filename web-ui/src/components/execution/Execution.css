@@ -1,0 +1,16 @@
+#execution-container {
+  margin-top: 3rem;
+}
+
+.status {
+  position: absolute;
+  right: 1rem;
+}
+
+.step-header {
+  line-height: 2rem;
+}
+
+.step-text {
+  height: 6rem;
+}

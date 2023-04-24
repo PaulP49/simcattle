@@ -1,0 +1,18 @@
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-left: 1rem;
+  height: 5%;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 450;
+  color: #6e6d7a;
+  margin-left: 1rem;
+  height: 3%;
+}
+
+.navbar {
+  height: 6%;
+}

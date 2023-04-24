@@ -1,0 +1,16 @@
+@baseURL = http://localhost:8080/api
+
+###
+### Get Configuration
+###
+GET {{baseURL}}/configuration
+
+###
+### Update Configuration
+###
+PUT {{baseURL}}/configuration
+Content-Type: application/json
+
+{
+    "sensors": "my super sensor"
+}

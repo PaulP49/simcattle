@@ -1,0 +1,12 @@
+#settings-form {
+  margin: 1rem;
+  padding-bottom: 1rem;
+}
+
+#setting-input {
+  white-space: pre-wrap;
+}
+
+#setting-question {
+  cursor: pointer;
+}

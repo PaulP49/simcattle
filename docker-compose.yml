@@ -1,0 +1,75 @@
+version: '3.3'
+services:
+  ### Gateway ###
+  gateway:
+    build: gateway
+    ports: 
+      - 8080:8080
+    volumes:
+      - ./gateway:/app
+  
+  ### SmartSPEC service ###
+  smartspec-service:
+    build: smartspec-service
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: simcattle
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./smartspec-service:/app
+
+  ### Configuration service ###
+  configuration-service:
+    build: configuration-service
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: simcattle
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./configuration-service:/app
+
+  ### Location service ###
+  location-service:
+    build: location-service
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: simcattle
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./location-service:/app
+
+  ### Database ###
+  db:
+    image: mysql:8
+    restart: always
+    command:
+      - '--secure-file-priv='
+    environment:
+      MYSQL_DATABASE: simcattle
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306:3306
+    volumes:
+      # Where the data is persisted
+      - my-db:/var/lib/mysql
+      # Init scripts
+      - ./data:/data
+      - ./scripts/init/create_tables.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./scripts/init/insert_in_smartspec_conf.sql:/docker-entrypoint-initdb.d/2.sql
+      - ./scripts/init/load_data_from_csv.sql:/docker-entrypoint-initdb.d/3.sql
+      - ./scripts/init/transform_measurements.sql:/docker-entrypoint-initdb.d/4.sql
+
+  ### Web UI ###
+  web-ui:
+    build: web-ui
+    environment:
+      REACT_APP_SERVER_URL: http://localhost:8080
+    volumes:
+      - ./web-ui:/app
+volumes:
+  my-db:

@@ -1,0 +1,26 @@
+@baseURL = http://localhost:8080/api
+
+###
+### Start Scenario-Learning
+###
+POST {{baseURL}}/learning/start
+
+###
+### Status of Scenario-Learning
+###
+GET {{baseURL}}/learning/status
+
+###
+### Start Scenario-Generation
+###
+POST {{baseURL}}/generation/start
+
+###
+### Status of Scenario-Generation
+###
+GET {{baseURL}}/generation/status
+
+###
+### Persist Scenario-Generation result
+###
+POST {{baseURL}}/generation/persist

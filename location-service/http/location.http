@@ -1,0 +1,9 @@
+@baseURL = http://localhost:8080/api
+
+@startTime = 1650931331
+@endTime = 1650931451
+
+###
+### Get Locations
+###
+GET {{baseURL}}/locations?start={{startTime}}&end={{endTime}}

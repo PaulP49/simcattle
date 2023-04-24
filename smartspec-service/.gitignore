@@ -1,0 +1,6 @@
+smartspec/data/*
+!smartspec/data
+smartspec/data/output/*
+!smartspec/data/output
+smartspec/data/output/plots/*
+!smartspec/data/output/plots/.gitkeep
